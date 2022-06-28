@@ -19,7 +19,7 @@ public class PoemBeautifier {
     }
 
     public static String lowerText(String text) {
-        return text.toUpperCase();
+        return text.toLowerCase();
     }
 
     public static String suffixExclam(String text) {
