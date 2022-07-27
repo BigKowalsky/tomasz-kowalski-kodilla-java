@@ -17,6 +17,5 @@ public class ExceptionHandlingTestSuite {
                     ()-> assertThrows(Exception.class, ()->secondChallenge.probablyIWillThrowException(2.0,1.4)),
                     ()-> assertThrows(Exception.class, ()->secondChallenge.probablyIWillThrowException(1.0,1.5))
             );
-
         }
 }

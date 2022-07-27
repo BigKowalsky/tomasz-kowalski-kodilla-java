@@ -3,7 +3,7 @@ package com.kodilla.stream.portfolio;
 import java.util.LinkedList;
 import java.util.List;
 
-public class TaskList {
+public final class TaskList {
 
     private final List<Task> tasks = new LinkedList<>();
     private final String name;
@@ -21,7 +21,7 @@ public class TaskList {
     }
 
     public List<Task> getTasks() {
-        return tasks;
+        return new LinkedList<>(tasks);
     }
 
     public String getName() {
@@ -31,20 +31,16 @@ public class TaskList {
     @Override
     public String toString() {
         return "TaskList{" +
-                "tasks=" + tasks +
-                ", name='" + name + '\'' +
-                '}';
+                "name='" + name + '\'' + ",\n" +
+                "tasks=\n" + tasks + "\n" +
+                '}' + "\n";
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof TaskList)) return false;
-
         TaskList taskList = (TaskList) o;
-
-        if (getTasks() != null ? !getTasks().equals(taskList.getTasks()) : taskList.getTasks() != null) return false;
-        return getName() != null ? getName().equals(taskList.getName()) : taskList.getName() == null;
+        return name.equals(taskList.name);
     }
-
 }

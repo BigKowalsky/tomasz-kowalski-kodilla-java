@@ -1,25 +1,32 @@
 package com.kodilla.stream.portfolio;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
-import java.time.Period;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.OptionalDouble;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BoardTestSuite {
-    public Board prepareTestData() {
+class BoardTestSuite {
+
+    @Test
+    void testAddTaskList() {
+        //Given
+        Board project = prepareTestData();
+        //When
+
+        //Then
+        assertEquals(3, project.getTaskLists().size());
+    }
+
+    private Board prepareTestData() {
         //users
         User user1 = new User("developer1", "John Smith");
         User user2 = new User("projectmanager1", "Nina White");
         User user3 = new User("developer2", "Emilia Stephanson");
         User user4 = new User("developer3", "Konrad Bridge");
+
         //tasks
         Task task1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
@@ -58,6 +65,7 @@ public class BoardTestSuite {
                 user2,
                 LocalDate.now().minusDays(15),
                 LocalDate.now().minusDays(2));
+
         //taskLists
         TaskList taskListToDo = new TaskList("To do");
         taskListToDo.addTask(task1);
@@ -68,6 +76,7 @@ public class BoardTestSuite {
         taskListInProgress.addTask(task2);
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
+
         //board
         Board project = new Board("Project Weather Prediction");
         project.addTaskList(taskListToDo);
@@ -77,47 +86,41 @@ public class BoardTestSuite {
     }
 
     @Test
-    void testAddTaskList() {
-        //Given
-        Board project = prepareTestData();
-        //When
-
-        //Then
-        assertEquals(3, project.getTaskLists().size());
-    }
-
-    @Test
     void testAddTaskListFindUsersTasks() {
         //Given
         Board project = prepareTestData();
+
         //When
         User user = new User("developer1", "John Smith");
         List<Task> tasks = project.getTaskLists().stream()
                 .flatMap(l -> l.getTasks().stream())
                 .filter(t -> t.getAssignedUser().equals(user))
                 .collect(toList());
+
         //Then
         assertEquals(2, tasks.size());
+        assertEquals(user, tasks.get(0).getAssignedUser());
         assertEquals(user, tasks.get(1).getAssignedUser());
     }
 
     @Test
-    public void testAddTaskListFindOutdatedTasks(){
+    void testAddTaskListFindOutdatedTasks() {
         //Given
         Board project = prepareTestData();
 
         //When
-        List<TaskList>undoneTasks = new ArrayList<>();
-        undoneTasks.add(new TaskList("To Do"));
+        List<TaskList> undoneTasks = new ArrayList<>();
+        undoneTasks.add(new TaskList("To do"));
         undoneTasks.add(new TaskList("In progress"));
         List<Task> tasks = project.getTaskLists().stream()
                 .filter(undoneTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .filter(t->t.getDeadline().isBefore(LocalDate.now()))
-                .collect(Collectors.toList());
-        //Then
-        Assertions.assertEquals(1, tasks.size());
-        Assertions.assertEquals("HQLs for analysis", tasks.get(0).getTitle());
-    }
+                .filter(t -> t.getDeadline().isBefore(LocalDate.now()))
+                .collect(toList());
 
+        //Then
+        assertEquals(1, tasks.size());
+        assertEquals("HQLs for analysis", tasks.get(0).getTitle());
+    }
 }
+
