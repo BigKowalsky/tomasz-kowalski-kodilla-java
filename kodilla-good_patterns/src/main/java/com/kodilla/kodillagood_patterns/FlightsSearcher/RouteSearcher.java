@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.kodilla.kodillagood_patterns.FlightsSearcher.FlightTable;
-
 public final class RouteSearcher {
     public List<String> flightsFrom(String startAirport) {
         List<String> from = FlightTable.content().stream()
