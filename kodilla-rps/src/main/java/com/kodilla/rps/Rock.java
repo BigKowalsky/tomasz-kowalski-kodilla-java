@@ -4,6 +4,6 @@ public class Rock implements RpsMove {
 
     @Override
     public String getName() {
-        return "Paper";
+        return "Rock";
     }
 }

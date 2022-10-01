@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.kodilla'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0-RC1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.0-RC1'
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.8.0'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
