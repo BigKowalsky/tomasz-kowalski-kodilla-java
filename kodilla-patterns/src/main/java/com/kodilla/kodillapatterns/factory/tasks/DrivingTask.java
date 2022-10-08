@@ -1,11 +1,15 @@
 package com.kodilla.kodillapatterns.factory.tasks;
 
+import java.time.Duration;
 import java.time.LocalDate;
 
 public final class DrivingTask implements Task {
     final String taskName;
     final String where;
     final String using;
+    LocalDate today = LocalDate.now();
+    LocalDate finish = LocalDate.of(2022,10,31);
+
 
     public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
@@ -27,7 +31,7 @@ public final class DrivingTask implements Task {
     @Override
     public boolean isTaskExecuted() {
         boolean result = false;
-        if (LocalDate.now().getDayOfMonth() % 2 == 0) {
+        if (finish.isBefore(today.plusDays(15))) {
             result = true;
         }
         return result;
