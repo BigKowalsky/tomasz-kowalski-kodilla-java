@@ -18,6 +18,7 @@ public class TaskListDaoTestSuite {
 
     @Autowired
     private TaskListDao taskListDao;
+    private String LISTNAME = "ToDo tasks";
     private static final String DESCRIPTION = "Test: Hibernate running";
 
     @Test

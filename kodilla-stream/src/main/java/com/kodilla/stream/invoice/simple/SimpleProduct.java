@@ -10,7 +10,7 @@ public class SimpleProduct {
         this.productPrice = productPrice;
     }
 
-    public String getProductName(String s) {
+    public String getProductName() {
         return productName;
     }
 

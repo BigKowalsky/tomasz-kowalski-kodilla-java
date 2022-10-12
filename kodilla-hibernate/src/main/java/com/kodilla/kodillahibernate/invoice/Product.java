@@ -1,7 +1,5 @@
 package com.kodilla.kodillahibernate.invoice;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -12,7 +10,7 @@ import java.util.List;
 public final class Product {
     private int id;
     private String name;
-    private List<AbstractReadWriteAccess.Item> items = new ArrayList<>();
+    private List<Item> items = new ArrayList<>();
 
     public Product(String name) {
         this.name = name;
