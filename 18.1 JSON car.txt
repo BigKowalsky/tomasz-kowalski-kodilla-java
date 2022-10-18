@@ -1,0 +1,28 @@
+{
+  "name":"Camry",
+  "brand":"Toyota",
+  "car seats":[{"seat1":{
+                "material":"leather",
+                "colour":"red"
+                 }
+                 },{
+                 "seat2":{
+                 "material":"textile",
+                 "colour":"blue"
+                  }
+                  },{
+                  "seat3":{
+                  "material":"velur",
+                  "colour":"yellow"
+                  }
+                  },{
+                  "seat4":{
+                  "material":"traditional",
+                  "colour":"green"
+                   }
+                  }]
+"engine":1.8
+}
+			
+
+	
