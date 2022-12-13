@@ -21,20 +21,10 @@ public class TaskTestSuite {
         //Given
         TaskFactory factoryPainting = new TaskFactory();
         //When
-        Task painting = factoryPainting.makeTask(TaskFactory.PAINTING);
+       Task painting = factoryPainting.makeTask(TaskFactory.PAINTING);
         //Then
-        assertEquals(painting.getTaskName(), "Painting a landscape");
-        assertTrue(painting.isTaskExecuted());
+       assertEquals(painting.getTaskName(), "Painting a landscape");
+       assertTrue(painting.isTaskExecuted());
     }
 
-    @Test
-    public void testFactoryDriving() {
-        //Given
-        TaskFactory factoryDriving = new TaskFactory();
-        //When
-        Task driving = factoryDriving.makeTask(TaskFactory.DRIVING);
-        //Then
-        assertEquals(driving.getTaskName(), "Giving a painting");
-        assertFalse(driving.isTaskExecuted());
-    }
 }

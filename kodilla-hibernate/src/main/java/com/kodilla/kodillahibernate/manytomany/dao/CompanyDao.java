@@ -14,4 +14,7 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query(nativeQuery = true)
     List<Company> findByThreeFirstLetters(@Param("PARTNAME") String partName);
 
+    @Query
+    List<Company> selectCompaniesName(@Param("ARG") String arg);
+
 }

@@ -10,6 +10,10 @@ plugins {
     id 'java'
 }
 
+springBoot {
+    mainClass = 'com.kodilla.kodillapatterns.KodillaPatternsApplication'
+}
+
 group = 'com.kodilla'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
@@ -19,6 +23,11 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0-RC1'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.0-RC1'
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.8.0'
