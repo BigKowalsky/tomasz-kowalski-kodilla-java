@@ -2,6 +2,7 @@ package com.kodilla.testing.library;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -26,6 +27,7 @@ class BookDirectoryTestSuite {
 
     @Mock
     private LibraryDatabase libraryDatabaseMock;
+    @InjectMocks
     private BookLibrary bookLibrary;
 
     @Test
