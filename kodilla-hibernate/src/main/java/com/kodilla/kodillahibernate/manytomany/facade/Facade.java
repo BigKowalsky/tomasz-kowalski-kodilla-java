@@ -24,7 +24,7 @@ public class Facade {
         this.employeeDao = employeeDao;
     }
 
-    public List<Company> selectCompanies(final String name) {
+    public List<Company> selectCompanies(String name) {
         return companyDao.selectCompaniesName(name);
     }
 
