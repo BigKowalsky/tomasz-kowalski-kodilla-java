@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.28'
+    implementation 'junit:junit:4.13.1'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.0-RC1'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.9.0-RC1'
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.8.0'
